@@ -5,7 +5,6 @@ from tags.models import Tags
 from rest_framework import generics
 from .serializers import ArticleSerializer
 
-
 # Create your views here.
 
 class ArticleList(generics.ListAPIView):

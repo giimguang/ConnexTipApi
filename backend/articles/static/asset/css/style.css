@@ -9,3 +9,19 @@
 body{
     font-family: 'Poppins', sans-serif;
 }
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-level{
+    text-align: center;
+}
+
+.error-level h1{
+    font-size: 60px;
+}
