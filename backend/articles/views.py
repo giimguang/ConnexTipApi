@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from .models import Article
-from tags.models import Tags
+from .models import Article,Category
 
 from rest_framework import generics
 from .serializers import ArticleSerializer
@@ -46,3 +45,11 @@ class ArticleDelete(generics.DestroyAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
     lookup_field = "slug"
+
+class ArticleCategory(generics.ListAPIView):
+    serializer_class = ArticleSerializer
+
+    def get_queryset(self):
+        cate_query = self.kwargs['category']
+        cate = Category.objects.get(title=cate_query)
+        return cate.category_articles.all()
