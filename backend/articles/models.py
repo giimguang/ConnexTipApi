@@ -1,5 +1,5 @@
 from django.db import models
-from tags.models import Tags
+from tags.models import Tag
 import random
 
 # Create your models here.
@@ -10,7 +10,7 @@ class Article(models.Model):
     banner = models.ImageField(upload_to='banners/', null=True, blank=True)
     slug = models.CharField(max_length=20, unique=True, null=True)
     viewer = models.IntegerField(default=0)
-    tags = models.ManyToManyField(Tags, related_name="tagged")
+    tags = models.ManyToManyField(Tag, related_name="tagged")
     category = models.ForeignKey('Category', on_delete=models.CASCADE, related_name='category_articles', null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
