@@ -24,6 +24,7 @@ class ArticleSerializer(serializers.ModelSerializer):
         tags_split = tags_data.split(",")
         tags_name = [t.strip().lower() for t in tags_split]
         tags = Tag.objects.filter(name__in=tags_name)
+        instance.objects.update(**validated_data)
         instance.tags.set(tags)
         instance.save()
         return instance
