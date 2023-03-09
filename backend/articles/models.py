@@ -14,8 +14,10 @@ class Article(models.Model):
     category = models.ForeignKey('Category', on_delete=models.CASCADE, related_name='category_articles', null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
+    
     def __str__(self):
         return self.title
+    
     def save(self, *args, **kwargs):
         if not self.slug:
             strs = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789"
@@ -24,6 +26,7 @@ class Article(models.Model):
                 ran_slug += random.choice(strs)
             self.slug = ran_slug
         super(Article, self).save(*args, **kwargs)
+    
     class Meta:
         ordering = ['-created_date']
 
