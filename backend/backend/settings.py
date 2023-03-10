@@ -30,8 +30,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG') == "True"
 
 ALLOWED_HOSTS = [
-    'https://spontaneous-tanuki-7902ac.netlify.app',
-    'http://localhost:3000'
+    '127.0.0.1', # For development
+    'https://connextipapi.onrender.com/'
 ]
 
 # Application definition
