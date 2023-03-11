@@ -26,4 +26,4 @@ class ArticleSerializer(serializers.ModelSerializer):
         tags = Tag.objects.filter(name__in=tags_name)
         instance.tags.set(tags)
         instance.save()
-        return instance
+        return super().update(instance, validated_data)
